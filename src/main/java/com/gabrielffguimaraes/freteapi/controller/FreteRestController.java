@@ -23,6 +23,11 @@ public class FreteRestController {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    @GetMapping("/log")
+    public List<CorreioLog> log() {
+        return freteService.log();
+    }
     @GetMapping("/calculaFrete")
     public CorreioResponseDto calculaFrete(@RequestParam("destinatario") String destinatario,
                                            @RequestParam("peso") float peso,
@@ -42,8 +47,5 @@ public class FreteRestController {
         }
     }
 
-    @GetMapping("/log")
-    public List<CorreioLog> log() {
-        return freteService.log();
-    }
+
 }
